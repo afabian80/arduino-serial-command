@@ -17,10 +17,7 @@ bool toggleLed(void*) {
 void setup() {
   pinMode(pin, OUTPUT);
   Serial.begin(9600);
-  Serial.println("Started");
-  help();
   timer.every(500, toggleLed);
-  delay(500);
 }
 
 void loop() {
@@ -46,22 +43,11 @@ void show() {
 void handle() {
   switch (c) {
     case '0':
-      Serial.println("BLINKING OFF");
       blink = false;
       digitalWrite(pin, LOW);
       break;
     case '1':
-      Serial.println("BLINKING ON");
       blink = true;
-      break;
-    default:
-      Serial.print("Unknown command character: ");
-      Serial.println(c);
-      help();
+      break; 
   }
-}
-
-void help() {
-  Serial.println("1 - turn on  blinking");
-  Serial.println("0 - turn off blinking");
 }
