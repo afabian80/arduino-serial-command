@@ -26,5 +26,10 @@ crontab -e
 Add this line to start blinking every day at 10:40 and 15:40
 ```
 40 10,15 * * * echo -n 1 | socat - /dev/ttyACM0
+```
 
+or
+
+```
+40 10,15 * * *  bash -c "stty -F /dev/ttyUSB0 -hup; echo -n 0 > /dev/ttyUSB0"
 ```
