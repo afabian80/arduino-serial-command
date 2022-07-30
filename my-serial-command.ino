@@ -4,7 +4,7 @@ auto timer = timer_create_default();
 
 char c;
 boolean ready = false;
-char pin = 13;
+char pin = 8;
 boolean blink = false;
 
 bool toggleLed(void*) {
@@ -20,6 +20,7 @@ void setup() {
   Serial.println("Started");
   help();
   timer.every(500, toggleLed);
+  delay(500);
 }
 
 void loop() {
